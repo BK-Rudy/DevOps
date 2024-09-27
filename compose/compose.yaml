@@ -1,0 +1,39 @@
+services:
+  eureka:
+    image: bruno-rudy/eureka:latest
+    container_name: EUREKA-SERVER
+    ports:
+      - "8761:8761"
+    networks:
+      - dev-ops
+  status-1:
+    image: bruno-rudy/status-1:latest
+    environment:
+      - SERVER_PORT=8081
+    ports:
+      - "8081:8081"
+    networks:
+      - dev-ops
+    depends_on:
+      - eureka
+  status-2:
+      image: bruno-rudy/status-2:latest
+      environment:
+        - SERVER_PORT=8082
+      ports:
+        - "8082:8082"
+      networks:
+        - dev-ops
+      depends_on:
+        - eureka
+  vehicle:
+    image: bruno-rudy/vehicle:latest
+    networks:
+      - dev-ops
+    ports:
+      - "8083:8083"
+    depends_on:
+      - eureka
+networks:
+  dev-ops:
+    driver: bridge
