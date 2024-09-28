@@ -1,4 +1,4 @@
-package com.infnet.vehicleservice.config;
+package com.infnet.expenseservice.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -11,8 +11,8 @@ public class SwaggerConfig {
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
-                .info(new Info().title("Infnet - API de veículos")
-                        .description("Documentação da API para o serviço de veículo.")
+                .info(new Info().title("Infnet - API de despesas")
+                        .description("Documentação da API para o serviço de despesa.")
                         .version("1.0"));
     }
 }

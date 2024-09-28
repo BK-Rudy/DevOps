@@ -1,0 +1,7 @@
+INSERT INTO EXPENSE (name, description, EXPENSE_VALUE, discount, ipi, icms, installments) VALUES
+                                                                                             ('Aluguel', 'Pagamento do aluguel mensal do escritório', 1500.00, 0.00, 0.00, 0.00, 1),
+                                                                                             ('Serviço de Internet', 'Pagamento mensal do serviço de internet', 300.00, 0.00, 0.00, 0.00, 1),
+                                                                                             ('Material de Escritório', 'Compra de material de escritório', 200.00, 20.00, 0.00, 0.00, 1),
+                                                                                             ('Software de Gestão', 'Licença anual de software de gestão', 1200.00, 100.00, 0.00, 0.00, 1),
+                                                                                             ('Treinamento de Funcionários', 'Curso de capacitação para a equipe', 800.00, 0.00, 0.00, 0.00, 2),
+                                                                                             ('Consultoria', 'Serviço de consultoria financeira', 600.00, 50.00, 0.00, 0.00, 1);

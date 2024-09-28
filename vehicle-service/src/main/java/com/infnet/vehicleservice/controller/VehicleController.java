@@ -68,7 +68,7 @@ public class VehicleController {
 
     @Operation(summary = "Cadastra um novo veículo", description = "Cadastra um novo veículo com base nos parâmetros fornecidos")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Veículo cadastrado com sucesso",
+            @ApiResponse(responseCode = "201", description = "Veículo cadastrado com sucesso",
                     content = @Content(mediaType = "application/json", schema = @Schema(implementation = Vehicle.class))),
             @ApiResponse(responseCode = "400", description = "Erro no cadastro do veículo", content = @Content)
     })
