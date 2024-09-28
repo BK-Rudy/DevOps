@@ -44,6 +44,25 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
+    public List<Vehicle> findByModel(String model) throws Exception {
+        if (model.isBlank()) {
+            throw new IllegalArgumentException("Erro: Insira um modelo válido.");
+        }
+        log.info("Buscando veículos...");
+
+        List<Vehicle> vehicles = vehicleRepository.findByModel(model);
+
+        if (vehicles.isEmpty()) {
+            log.error("Nenhum veículo encontrado");
+            throw new Exception("Erro: Não há veículos cadastrados com esse nome de modelo.");
+        }
+
+        log.info("Encontrado {} veículos.", vehicles.size());
+
+        return vehicles;
+    }
+
+    @Override
     public Vehicle save(Vehicle vehicle) {
         log.info("Criando veículo...");
 

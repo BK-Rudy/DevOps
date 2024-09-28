@@ -51,6 +51,21 @@ public class VehicleController {
         }
     }
 
+    @Operation(summary = "Busca veículos pelo modelo", description = "Busca todos os veículos que correspondem ao modelo fornecido")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Veículos encontrados com sucesso",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = Vehicle.class))),
+            @ApiResponse(responseCode = "400", description = "Erro na busca dos veículos", content = @Content)
+    })
+    @GetMapping("/model/{model}")
+    public ResponseEntity<?> findByModel(@PathVariable String model) {
+        try {
+            return new ResponseEntity<>(vehicleService.findByModel(model), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @Operation(summary = "Cadastra um novo veículo", description = "Cadastra um novo veículo com base nos parâmetros fornecidos")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Veículo cadastrado com sucesso",
